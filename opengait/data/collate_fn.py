@@ -72,9 +72,9 @@ class CollateFn(object):
                     end = start + fs_n
                     idx_lst = list(range(seq_len))
                     idx_lst = idx_lst[start:end]
-                    idx_lst = sorted(np.random.choice(
-                        idx_lst, frames_num, replace=False))
-                    indices = [indices[i] for i in idx_lst]
+                    idx_lst = np.random.choice(
+                        idx_lst, frames_num, replace=False)
+                    indices = sorted([indices[i] for i in idx_lst])
                 else:
                     replace = seq_len < frames_num
 
